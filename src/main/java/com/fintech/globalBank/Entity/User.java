@@ -34,6 +34,8 @@ public class User {
     private String email;
     private String phoneNumber;
     private String altPhoneNumber;
+    private String password;
+    private String matchingPassword;
     private String Status;
     private String gender;
     private String address;
