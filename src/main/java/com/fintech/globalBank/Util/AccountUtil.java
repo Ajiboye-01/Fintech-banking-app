@@ -24,8 +24,10 @@ public class AccountUtil {
         //This generates the random number
         int randNum = (int) Math.floor(Math.random() * (max - min + 1));
 
+        //convert and store the current year as string
         String year = String.valueOf(currentYear);
 
+        //convert and stores the random number generated
         String randNumber = String.valueOf(randNum);
 
         StringBuilder accNumber = new StringBuilder();

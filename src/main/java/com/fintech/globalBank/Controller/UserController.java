@@ -1,5 +1,6 @@
 package com.fintech.globalBank.Controller;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,11 +15,12 @@ import com.fintech.globalBank.dto.UserRequest;
 @RequestMapping("/api/user")
 public class UserController {
 
+
     @Autowired
     private UserService uService;
-    
+
     @PostMapping("")
-    public BankResponse createAccount(@RequestBody UserRequest userRequest  ){
+    public BankResponse createAccount(@RequestBody UserRequest userRequest){
         return uService.createAccount(userRequest);
     }
     

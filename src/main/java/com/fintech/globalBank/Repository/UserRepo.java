@@ -7,5 +7,5 @@ import com.fintech.globalBank.Entity.User;
 
 @Repository
 public interface UserRepo extends JpaRepository<User, Long>{
-    Boolean existByEmail(String email);
+    Boolean existsByEmail(String email);
 }

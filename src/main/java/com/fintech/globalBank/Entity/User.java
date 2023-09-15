@@ -16,6 +16,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
+/*
+*This is further seperated into two parts, which is:
+* UserRequest(user Information)
+* Account information
+* They are both in the Data Transfer Object
+ */
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
