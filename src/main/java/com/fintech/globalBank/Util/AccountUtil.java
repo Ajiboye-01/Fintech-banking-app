@@ -3,14 +3,6 @@ package com.fintech.globalBank.Util;
 import java.time.Year;
 
 public class AccountUtil {
-/*
- * This throws custom message if account exists
- */
-    public static final String ACCOUNT_EXISTS_CODE = "001";
-    public static final String ACCOUNT_EXISTS_MESSAGE = "This User already has an account";
-
-    public static final String ACCOUNT_CREATION_SUCCESS_CODE = "002";
-    public static final String ACCOUNT_CREATION_MESSAGE = "Account Created successfully";
 
 /*
 * This has a method that generate account number

@@ -18,11 +18,13 @@ public class EmailServiceImpl implements EmailService{
 
 
     /**
+     * Using the in-built Simple mail Message, it is used to set the standard body of a mail
      * This gets the Email detail of both the sender and the recipient using the inbuilt
      * method named EMAIL-DETAILS.
      * Then set the body of the email that has the normal standard details of sending an email
      */
 
+    //sender email is the Value
     @Value("${spring.mail.username")
     @Override
     public void sendEmail(EmailDetails emailDetails) {

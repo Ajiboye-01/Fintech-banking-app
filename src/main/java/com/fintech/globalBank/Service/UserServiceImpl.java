@@ -2,7 +2,9 @@ package com.fintech.globalBank.Service;
 
 import java.math.BigDecimal;
 
-import com.fintech.globalBank.dto.EmailDetails;
+import com.fintech.globalBank.Util.BankResonseMessage;
+import com.fintech.globalBank.Util.BankResponseMessage;
+import com.fintech.globalBank.dto.*;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,9 +12,6 @@ import org.springframework.stereotype.Service;
 import com.fintech.globalBank.Entity.User;
 import com.fintech.globalBank.Repository.UserRepo;
 import com.fintech.globalBank.Util.AccountUtil;
-import com.fintech.globalBank.dto.AccountInfo;
-import com.fintech.globalBank.dto.BankResponse;
-import com.fintech.globalBank.dto.UserRequest;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -38,8 +37,8 @@ public class UserServiceImpl implements UserService {
 
         if(userRepo.existsByEmail(userRequest.getEmail())){
             return BankResponse.builder()
-                    .responseCode(AccountUtil.ACCOUNT_EXISTS_CODE)
-                    .responseMessage(AccountUtil.ACCOUNT_EXISTS_MESSAGE)
+                    .responseCode(BankResponseMessage.ACCOUNT_EXISTS_CODE)
+                    .responseMessage(BankResponseMessage.ACCOUNT_EXISTS_MESSAGE)
                     .accountInfo(null)
                     .build();
         }
@@ -89,14 +88,44 @@ public class UserServiceImpl implements UserService {
          * The response of the method is the success code and message alongside the account information
          */
         return BankResponse.builder()
-                .responseCode(AccountUtil.ACCOUNT_CREATION_SUCCESS_CODE)
-                .responseMessage(AccountUtil.ACCOUNT_CREATION_MESSAGE)
+                .responseCode(BankResponseMessage.ACCOUNT_CREATION_SUCCESS_CODE)
+                .responseMessage(BankResponseMessage.ACCOUNT_CREATION_MESSAGE)
                 .accountInfo(AccountInfo.builder()
                         .accountBalance(savedUser.getAccountBalance())
                         .accountNumber(savedUser.getAccountNumber())
                         .accountName(savedUser.getFirstName() + " " + savedUser.getLastName() + " " + savedUser.getOtherName())
                         .build())
                 .build();
+    }
+
+    /**
+     * Checks
+     * @param request
+     * @return
+     */
+    @Override
+    public BankResponse balanceEnquiry(EnquiryRequest request) {
+        boolean ifAccountExist = userRepo.existsByAccountNumber(request.getAccountNumber());
+        if(!ifAccountExist){
+            return BankResponse.builder()
+                    .responseCode(BankResponseMessage.ACCOUNT_DO_NOT_EXIST_CODE)
+                    .responseMessage(BankResponseMessage.ACCOUNT_DOES_NOT_EXIST_MESSAGE)
+                    .accountInfo(null)
+                    .build();
+        }
+        User foundUser = userRepo.findByAccountNumber(request.getAccountNumber());
+        return BankResponse.builder()
+                .responseCode()
+                .responseMessage()
+                .accountInfo(AccountInfo.builder()
+                        .
+                        .build())
+                .build();
+    }
+
+    @Override
+    public String nameEnquiry(EnquiryRequest request) {
+        return null;
     }
 
 }
