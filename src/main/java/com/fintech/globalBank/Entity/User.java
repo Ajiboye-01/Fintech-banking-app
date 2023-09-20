@@ -3,6 +3,7 @@ package com.fintech.globalBank.Entity;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+import com.fintech.globalBank.dto.AccountType;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -50,6 +51,7 @@ public class User {
     private String stateOfOrigin;
     private String accountNumber;
     private BigDecimal accountBalance;
+    private AccountType type;
     @CreationTimestamp
     private LocalDateTime createdAt;
     @UpdateTimestamp

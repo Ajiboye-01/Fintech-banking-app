@@ -1,19 +1,16 @@
 package com.fintech.globalBank.dto;
 
-import java.math.BigDecimal;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
+import java.math.BigDecimal;
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
-public class AccountInfo {
-    private String accountName;
-    private BigDecimal accountBalance;
+@AllArgsConstructor
+@Data
+public class CreditDebitRequest {
     private String accountNumber;
-    private AccountType type;
+    private BigDecimal amount;
 }
