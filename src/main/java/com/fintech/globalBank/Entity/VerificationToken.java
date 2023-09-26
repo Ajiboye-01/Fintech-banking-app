@@ -1,0 +1,51 @@
+//package com.fintech.globalBank.Entity;
+//
+//import com.fintech.globalBank.dto.UserRequest;
+//import jakarta.persistence.*;
+//import lombok.Data;
+//import lombok.NoArgsConstructor;
+//import org.jetbrains.annotations.Contract;
+//import org.jetbrains.annotations.NotNull;
+//
+//import java.util.Calendar;
+//import java.util.Date;
+//
+//@Entity
+//@Data
+//@NoArgsConstructor
+//public class VerificationToken {
+//
+//    private static final int EXPIRATION_TIME = 10;
+//
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Long id;
+//
+//    private String token;
+//    private Date expirationTime;
+//    @OneToOne(fetch = FetchType.EAGER)
+//    @JoinColumn(name = "userId",
+//            nullable = false,
+//            foreignKey = @ForeignKey(name = "USER_VERIFICATION_TOKEN"))
+//    private User user;
+//
+//    public VerificationToken(String token, User user) {
+//        super();
+//        this.token = token;
+//        this.expirationTime = expirationTime(EXPIRATION_TIME);
+//        this.user = user;
+//    }
+//    public VerificationToken(String token, UserRequest user){
+//        super();
+//        this.token = token;
+//        this.expirationTime = expirationTime(EXPIRATION_TIME);
+//    }
+//
+//    @Contract("_ -> new")
+//    private @NotNull Date expirationTime(int expirationTime) {
+//        Calendar calendar = Calendar.getInstance();
+//        calendar.setTimeInMillis(new Date().getTime());
+//        calendar.add(Calendar.MINUTE, expirationTime);
+//        return new Date(calendar.getTime().getTime());
+//    }
+//}
